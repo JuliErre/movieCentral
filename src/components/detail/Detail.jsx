@@ -25,16 +25,17 @@ const Detail = ({id}) => {
 
 
   return (
-    <HStack align='start' p={24} gap={10}>
+    <HStack align='start' p={24} gap={10} bgColor={'gray.700'} borderRadius='10px'>
         <Image src={`${Api.baseUrlImage}/${movie?.poster_path}`} objectFit='cover' w='250px' h='360px'/>
-        <VStack align='start' gap={5}>
-        <Flex
+        <VStack align='start' gap={5} maxWidth='700px'> 
+        <Flex 
                     justifyContent={"center"}
                     align="center"
                     flexDirection="row"
                     bgColor={"blackAlpha.500"}
                     px={3}
                     zIndex={2}
+                    
                 >
                     <Text color="cyan.400">Action</Text>
                 </Flex>
