@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Link } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import HomeScreen from './screens/HomeScreen'
 import Routes from './routes/Routes'
-import { VStack } from '@chakra-ui/react'
+import { Flex, VStack } from '@chakra-ui/react'
 import SearchInput from './components/search/SearchInput'
 
 function App() {

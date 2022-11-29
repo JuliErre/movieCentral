@@ -1,8 +1,9 @@
 import React from 'react'
+import Watchlist from '../components/watchlist/Watchlist'
 
 const WatchListScreen = () => {
   return (
-    <div>WatchListScreen</div>
+    <Watchlist/>
   )
 }
 

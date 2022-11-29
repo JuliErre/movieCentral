@@ -11,6 +11,7 @@ const Search = ({text}) => {
 
     useEffect(()=>{
         let isUnmount = false;
+        setLoading(true)
         axios.get(`${Api.baseUrl}/movies/search/${text}`)
         .then(res => {
             if(!isUnmount){
