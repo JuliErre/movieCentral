@@ -12,7 +12,9 @@ const SearchInput = () => {
         if (searchText.length > 0) {
           navigate(`/search/${searchText}`);
         } else {
-          navigate(`/`);
+          if (location.pathname.includes('/search')){
+            navigate(`/`);
+          }
         }
       }, [searchText]);
 

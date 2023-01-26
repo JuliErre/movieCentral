@@ -10,8 +10,8 @@ function App() {
   return (
     <VStack maxWidth={"100vw"} minHeight={"100vh"} spacing={0} margin={0} bgColor='gray.800' position='relative'>
         <BrowserRouter>
-        <SearchInput/>
         <Routes/>
+        <SearchInput/>
         </BrowserRouter>
     </VStack>
     

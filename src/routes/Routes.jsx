@@ -19,6 +19,7 @@ const routes = () => {
                 <Route path="/detail/:id" element={<DetailScreen />} />
                 <Route path="/search/:searchText" element={<SearchScreen />} />
             </Route>
+            <Route path="*" element={<h1>404</h1>} />
         </Routes>
     );
 };
