@@ -7,7 +7,7 @@ import {
     Input,
     useToast,
     VStack,
-    Text
+    Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
@@ -62,7 +62,12 @@ const Login = () => {
             });
     };
     return (
-        <HStack h={"100vh"} maxH={"100vh"} bgColor="gray.300">
+        <HStack
+            h={"100vh"}
+            maxH={"100%"}
+            w={"100vw"}
+            maxWidth={"100%"}
+            bgColor="gray.300">
             <VStack
                 alignItems="center"
                 justifyContent="center"
@@ -79,8 +84,19 @@ const Login = () => {
                     width="500px"
                     height="600px"
                     borderRadius={"20px"}>
-                    <Heading as="h3" size="xl" color="gray.800" textAlign={"left"} >
-                    Hi, <Text as={"span"} bgGradient='linear(to-r, #00c6ff, #0072ff)' bgClip='text'> Welcome Back!</Text>
+                    <Heading
+                        as="h3"
+                        size="xl"
+                        color="gray.800"
+                        textAlign={"left"}>
+                        Hi,{" "}
+                        <Text
+                            as={"span"}
+                            bgGradient="linear(to-r, #00c6ff, #0072ff)"
+                            bgClip="text">
+                            {" "}
+                            Welcome Back!
+                        </Text>
                     </Heading>
                     <Input
                         placeholder="Email"
@@ -150,7 +166,7 @@ const Login = () => {
                     position="absolute"
                     bgGradient="linear(to-b, transparent, 
             RGBA(0, 0, 0, 0.4) 70%)"
-                    zIndex={1} 
+                    zIndex={1}
                     margin={0}></Flex>
                 <Flex
                     position={"absolute"}
