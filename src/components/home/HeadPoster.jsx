@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Api from "../../Api";
 import {
     Button,
@@ -12,29 +12,17 @@ import {
     Spinner,
 } from "@chakra-ui/react";
 import { FaStar } from "react-icons/fa";
-import axios from "axios";
-import SearchInput from "../search/SearchInput";
+import useFetch from "../../hooks/useFetch";
 
 const HeadPoster = () => {
-    const [movie, setMovie] = useState({});
-    const [loading,setLoading] = useState(true)
-    useEffect(() => {
-        axios.get(`${Api.baseUrl}/movies/616037`)
-        .then((res) => {
-            setMovie(res.data[0])
-        }
-        )
-        .finally(() =>{
-            setTimeout(()=> {
+    const {
+        data: movie,
+        error,
+        loading,
+    } = useFetch(`${Api.baseUrl}/movies/616037`);
 
-                setLoading(false)
-            },1000)
-        })
-        .catch(err => console.log(err))
-
-    },[])
-
-    if(loading) return <Spinner textAlign='center' color='cyan.500' size='xl' m={10} />
+    if (loading)
+        return <Spinner textAlign="center" color="cyan.500" size="xl" m={10} />;
 
     return (
         <Flex position="relative" width="100%" h="700px">
@@ -52,16 +40,14 @@ const HeadPoster = () => {
                 zIndex={2}
                 flexDirection="column"
                 maxWidth={"1000px"}
-                gap={6}
-            >
+                gap={6}>
                 <Flex
                     justifyContent={"center"}
                     align="center"
                     flexDirection="row"
                     bgColor={"blackAlpha.500"}
                     px={3}
-                    zIndex={2}
-                >
+                    zIndex={2}>
                     <Text color="cyan.400">Action</Text>
                 </Flex>
                 <HStack>
@@ -84,8 +70,7 @@ const HeadPoster = () => {
                     variant="outline"
                     borderRadius={50}
                     p={6}
-                    colorScheme="cyan"
-                >
+                    colorScheme="cyan">
                     {" "}
                     Watch now
                 </Button>
@@ -97,8 +82,7 @@ const HeadPoster = () => {
                 position="absolute"
                 bgGradient="linear(to-b, transparent, 
             RGBA(0, 0, 0, 0.8) 70%)"
-                zIndex={1}
-            ></Flex>
+                zIndex={1}></Flex>
             <Flex width={"100%"} position="absolute">
                 <Image
                     src={`${Api.baseUrlImage}/${movie?.backdrop_path}`}
