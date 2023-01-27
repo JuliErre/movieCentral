@@ -7,6 +7,7 @@ import SearchScreen from "../screens/SearchScreen";
 import LoginScreen from "../screens/LoginScreen";
 import ProtectedRoute from "./ProtectedRoute";
 import RegisterScreen from "../screens/RegisterScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const routes = () => {
     return (
@@ -18,6 +19,7 @@ const routes = () => {
                 <Route path="/watchlist" element={<WatchListScreen />} />
                 <Route path="/detail/:id" element={<DetailScreen />} />
                 <Route path="/search/:searchText" element={<SearchScreen />} />
+                <Route path="/profile" element={<ProfileScreen/>} />
             </Route>
             <Route path="*" element={<h1>404</h1>} />
         </Routes>
