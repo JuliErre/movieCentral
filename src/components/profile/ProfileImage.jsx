@@ -1,6 +1,9 @@
 import React from "react";
 import { Flex, Image } from "@chakra-ui/react";
 const ProfileImage = ({ image }) => {
+    const handleImage = () => {
+        console.log(image);
+    };
     return (
         <Flex
             key={image.id}
@@ -11,7 +14,9 @@ const ProfileImage = ({ image }) => {
             borderColor="cyan.700"
             backgroundColor={"gray.900"}
             m={2}
-            cursor={"pointer"}>
+            cursor={"pointer"}
+            onClick={handleImage}
+            >
             <Image src={image.url} />
         </Flex>
     );
