@@ -13,7 +13,7 @@ import axios from "axios";
 import React from "react";
 import { FaRegEnvelope } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import Api from "../../Api";
+import Api from "../../data/Api";
 const Login = () => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");

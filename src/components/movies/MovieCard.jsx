@@ -1,6 +1,6 @@
 import { Image, VStack,HStack, Flex,Text,Icon, Heading } from '@chakra-ui/react'
 import React from 'react'
-import Api from '../../Api'
+import Api from '../../data/Api'
 
 import { FaStar } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
