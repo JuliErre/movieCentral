@@ -2,7 +2,7 @@ import { Button, Icon, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { FaPlus } from "react-icons/fa";
-import Api from "../../Api";
+import Api from "../../data/Api";
 
 const AddToWatchList = ({ movieId, handleClicked }) => {
     const toast = useToast();

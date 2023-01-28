@@ -2,7 +2,7 @@ import { Button, Icon, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-import Api from "../../Api";
+import Api from "../../data/Api";
 const DeleteFromWatchList = ({ movieId, handleClicked }) => {
     const userId = localStorage.getItem("id");
     const toast = useToast();
