@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import SearchInput from "../search/SearchInput";
 import { FaHome } from "react-icons/fa";
+import { useSelector } from "react-redux";
 const Navbar = () => {
     const [show, handleShow] = useState(false);
+    const userImage = useSelector(state => state.userData.image)
 
     const location = useLocation();
 
@@ -60,7 +62,7 @@ const Navbar = () => {
                         borderColor={"cyan.600"}
                         cursor={"pointer"}>
                         <Image
-                            src="https://art-gallery-latam.api.hbo.com/images/a286cb57-fee3-45b1-a9c0-b9fabe519bfb/avatar?size=250x250&format=png"
+                            src={userImage}
                             w={50}
                             h={50}
                         />

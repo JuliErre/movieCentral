@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import LogoutBtn from "../button/LogoutBtn";
 import ProfileImagePicker from "./ProfileImagePicker";
 import { FiEdit } from "react-icons/fi";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
     const [isOpen, setIsOpen] = useState(false);
     const userName = localStorage.getItem("name");
+    const userImage = useSelector( state => state.userData.image);
 
     const handleOpen = () => {
         setIsOpen(true);
@@ -28,7 +30,7 @@ const Profile = () => {
                 cursor={"pointer"}
                 onClick={handleOpen}>
                 <Image
-                    src="https://art-gallery-latam.api.hbo.com/images/a286cb57-fee3-45b1-a9c0-b9fabe519bfb/avatar?size=250x250&format=png"
+                    src={userImage}
                     alt="Games of thrones"
                 />
                 <Icon

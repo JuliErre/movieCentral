@@ -1,32 +1,30 @@
-import { Flex } from '@chakra-ui/react'
-import axios from 'axios'
-import React,{useEffect, useState} from 'react'
-import Api from '../../data/Api'
-import MoviesList from '../movies/MoviesList'
+import { Flex } from "@chakra-ui/react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Api from "../../data/Api";
+import MoviesList from "../movies/MoviesList";
+import useFetch from "../../hooks/useFetch"
+import { useSelector } from "react-redux";
 
 const WatchListContainer = () => {
-    const [watchList, setWatchList] = useState([])
-    const userId  = localStorage.getItem('id') 
+    const userId = localStorage.getItem("id");
 
-
+    const { data, error, loading } = useFetch(`${Api.baseUrl}/watchlist/${userId}`);
+    const {movies : watchList} = data;
+    const movies = useSelector(state => state.watchlist)
+    
  
-    useEffect(()=> {
-        axios.get(`${Api.baseUrl}/watchlist/${userId}`)
-        .then(res => {
-            setWatchList(res.data.movies)
-            console.log(res.data.movies)
-        }
-        )
-        .catch(err => console.log(err))
+    return (
+        <Flex
+            wrap={"wrap"}
+            margin={"0px"}
+            justifyItems={"center"}
+            alignItems={"center"}
+            gap={4}
+            p={4}>
+            <MoviesList movies={movies} />
+        </Flex>
+    );
+};
 
-    },[userId])
-  return (
-      <Flex wrap={'wrap'} margin={'0px'} justifyItems={'center'} alignItems={'center'} gap={4} p={4}>
-
-      <MoviesList movies = {watchList}/>
-      </Flex>
-        
-  )
-}
-
-export default WatchListContainer
+export default WatchListContainer;
