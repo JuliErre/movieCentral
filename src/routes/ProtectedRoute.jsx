@@ -7,7 +7,6 @@ const ProtectedRoute = ({ children }) => {
     const token = localStorage.getItem("token");
     if (token) {
         const decoded = jwt_decode(token);
-        console.log(decoded);
         const currentTime = Date.now() / 1000;
         if (decoded.exp < currentTime) {
             localStorage.removeItem("token");

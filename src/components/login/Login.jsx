@@ -12,14 +12,30 @@ import {
 import axios from "axios";
 import React from "react";
 import { FaRegEnvelope } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Api from "../../data/Api";
+import { initUserData } from "../../features/userData/UserData";
+import { initWatchList } from "../../features/watchlist/WatchlistSlice";
+import useFetch from "../../hooks/useFetch";
 const Login = () => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [loading, setLoading] = React.useState(false);
     const navigator = useNavigate();
     const toast = useToast();
+    const dispatch = useDispatch();
+
+    const getWatchlist = async ({ id }) => {
+        try {
+            const res = await axios.get(`${Api.baseUrl}/watchlist/${id}`);
+            const { movies } = res.data;
+            dispatch(initWatchList(movies));
+            localStorage.setItem("watchlist", JSON.stringify(movies));
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const handleSubmit = () => {
         setLoading(true);
@@ -30,10 +46,22 @@ const Login = () => {
             })
             .then((res) => {
                 const { data, token } = res.data;
-                const { name, id } = data;
+                const { name, id, photo } = data;
                 localStorage.setItem("token", token);
                 localStorage.setItem("id", id);
                 localStorage.setItem("name", name);
+                localStorage.setItem("photo", photo);
+                console.log(photo);
+                dispatch(
+                    initUserData({
+                        image: photo
+                            ? photo
+                            : "https://art-gallery-latam.api.hbo.com/images/a286cb57-fee3-45b1-a9c0-b9fabe519bfb/avatar?size=250x250&format=png",
+                        name,
+                        id,
+                    })
+                );
+                getWatchlist({ id });
             })
             .then(() => {
                 setLoading(false);

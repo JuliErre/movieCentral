@@ -48,7 +48,7 @@ const Detail = ({ id }) => {
                 <Heading as="h3" size="3xl" color="gray.300">
                     {movie?.title}
                 </Heading>
-                <WatchListButtons movieId={movie.id} />
+                <WatchListButtons movie={movie} />
                 <Text color="gray.300">{movie?.overview}</Text>
                 <Text color="gray.300" fontSize={"md"}>
                     {movie?.release_date}

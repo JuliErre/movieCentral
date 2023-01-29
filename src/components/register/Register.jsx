@@ -32,7 +32,6 @@ const Register = () => {
                 name,
             })
             .then((res) => {
-                console.log(res.data);
                 setLoading(false);
                 toast({
                     title: "Account created.",

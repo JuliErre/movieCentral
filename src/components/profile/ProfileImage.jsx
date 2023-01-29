@@ -1,8 +1,33 @@
 import React from "react";
-import { Flex, Image } from "@chakra-ui/react";
+import { Flex, Image, useToast } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { setUserProfileImage } from "../../features/userData/UserData";
+import axios from "axios";
+import Api from "../../data/Api";
 const ProfileImage = ({ image }) => {
+    const dispatch = useDispatch();
+    const toast = useToast();
+    const userId = localStorage.getItem("id");
     const handleImage = () => {
-        console.log(image);
+        axios
+            .patch(`${Api.baseUrl}/photo`, {
+                photo: image.url,
+                userId,
+            })
+            .then((res) => {
+                localStorage.setItem("photo", image.url);
+                dispatch(setUserProfileImage(image.url));
+
+                toast({
+                    title: "Profile image updated",
+                    status: "success",
+                    duration: 1000,
+                    isClosable: true,
+                });
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
     return (
         <Flex
@@ -15,8 +40,7 @@ const ProfileImage = ({ image }) => {
             backgroundColor={"gray.900"}
             m={2}
             cursor={"pointer"}
-            onClick={handleImage}
-            >
+            onClick={handleImage}>
             <Image src={image.url} />
         </Flex>
     );
