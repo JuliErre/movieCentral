@@ -38,7 +38,8 @@ function App() {
             spacing={0}
             margin={0}
             bgColor="gray.800"
-            position="relative">
+            position="relative"
+            overflowX={{base:"hidden", md:"auto"}}>
             <BrowserRouter>
                 <Routes />
                 <Navbar />

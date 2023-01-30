@@ -8,14 +8,13 @@ const HomeContainer = () => {
     const { data:movies, error, loading } = useFetch(`${Api.baseUrl}/movies`);
 
     return (
-        <VStack justify="start" alignItems="start" p={5}>
-            <Heading as="h3" size={"lg"} color={"gray.200"}>
+        <VStack justify={{base:"center",md:"start"}} alignItems={{base:"center",md:"start"}}  p={5}>
+            <Heading as="h3" size={"lg"} color={"gray.200"} pl={{base:"0",md:24}}>
                 {"Populars movies   >"}{" "}
             </Heading>
             <HStack
                 wrap="wrap"
-                justify="start"
-                align={"start"}
+                justify={{base:"center",md:"center"}} alignItems={{base:"center",md:"center"}} 
                 spacing={0}
                 gap={3}
                 maxWidth={"90vw"}

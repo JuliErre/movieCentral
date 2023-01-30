@@ -95,7 +95,8 @@ const Login = () => {
             maxH={"100%"}
             w={"100vw"}
             maxWidth={"100%"}
-            bgColor="gray.300">
+            bgColor="gray.300"
+            overflowX={"hidden"}>
             <VStack
                 alignItems="center"
                 justifyContent="center"
@@ -177,10 +178,12 @@ const Login = () => {
             </VStack>
             <VStack
                 position={"relative"}
+                display={{base:"none", md:"flex"}}
                 maxWidth={"100%"}
                 maxH={"100vh"}
-                margin={0}>
-                <Flex width={"100%"} zIndex={0} margin={0}>
+                margin={0}
+                >
+                <Flex width={"100%"} zIndex={0} margin={0} display={{base:"none", md:"flex"}}>
                     <Image
                         src="https://image.tmdb.org/t/p/original/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg"
                         objectFit={"cover"}

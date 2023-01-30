@@ -35,7 +35,8 @@ const HeadPoster = () => {
                 // zIndex={2}
                 justify={"center"}
                 align={"start"}
-                pl={40}
+                pl={{base:5,lg:40}}
+                pt={{base:5,lg:0}}
                 pb={12}
                 zIndex={2}
                 flexDirection="column"
@@ -57,11 +58,11 @@ const HeadPoster = () => {
                     <Icon as={FaStar} color="white" fontSize="md" />
                     <Icon as={FaStar} color="white" fontSize="md" />
                 </HStack>
-                <Heading as="h3" size="4xl" color="gray.300">
+                <Heading as="h3" size={{base:"2xl",md:"4xl"}} color="gray.300">
                     {" "}
                     {movie?.title}
                 </Heading>
-                <Text color="gray.300" fontSize="lg" noOfLines={3}>
+                <Text color="gray.300" fontSize={{base:"sm",md:"lg"}} noOfLines={3}>
                     {" "}
                     {movie?.overview}
                 </Text>
