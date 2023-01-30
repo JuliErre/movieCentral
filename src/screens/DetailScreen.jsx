@@ -6,7 +6,7 @@ import Detail from "../components/detail/Detail";
 const DetailScreen = () => {
     const { id } = useParams();
     return (
-        <VStack pt={32}>
+        <VStack  pt={0} minH={"100vh"}>
             <Detail id={id} />
         </VStack>
     );

@@ -58,13 +58,14 @@ const Register = () => {
             });
     };
     return (
-        <HStack h={"100vh"} maxH={"100vh"} bgColor="gray.300">
+        <HStack h={"100vh"} maxH={"100vh"} bgColor="gray.300"  overflowX={"hidden"}>
             <VStack
                 alignItems="center"
                 justifyContent="center"
                     width="800px"
                 maxWidth="100%"
                 minHeight="100vh"
+               
                 >
                 <Flex
                     flexDirection="column"
@@ -148,7 +149,7 @@ const Register = () => {
                 maxWidth={"100%"}
                 maxH={"100vh"}
                 margin={0}>
-                <Flex width={"100%"} zIndex={0} margin={0}>
+                <Flex width={"100%"} zIndex={0} margin={0} display={{base:"none", md:"flex"}}>
                     <Image
                         src="https://image.tmdb.org/t/p/original/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg"
                         objectFit={"cover"}

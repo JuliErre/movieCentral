@@ -37,7 +37,7 @@ const Search = ({text}) => {
     if(loading) return <Spinner textAlign='center' color='cyan.500' size='xl' m={10} />
     if(movies.length === 0) return <Text color={'gray.100'} fontSize={'4xl'} p={10}>No results...</Text>
   return (
-    <HStack pt={24} wrap='wrap' spacing={0} gap={3}>
+    <HStack pt={24} wrap='wrap' spacing={0} gap={3} justifyContent={"center"}>
         <MoviesList movies={movies}/>
     </HStack>
   )
