@@ -24,7 +24,7 @@ const Detail = ({ id }) => {
         error: errorProviders,
         loading: loadingProviders,
     } = useFetch(
-        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=771f03b9c3d4bcaf131e7e4859fdb6f0`
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${import.meta.env.VITE_API_KEY}`
     );
 
     if (loading)
