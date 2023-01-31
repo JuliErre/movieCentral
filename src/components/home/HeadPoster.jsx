@@ -13,7 +13,6 @@ const HeadPoster = () => {
         loading,
     } = useFetch(`${Api.baseUrl}/movies/616037`);
 
-    console.log(movie.genre_ids);
 
     if (loading)
         return <Spinner textAlign="center" color="cyan.500" size="xl" m={10} />;

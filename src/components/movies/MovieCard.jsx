@@ -38,7 +38,6 @@ const MovieCard = ({ movie }) => {
             <Flex p={7} zIndex={2} flexDirection="column" gap={"20px"}>
                 <GenresContainer
                     genresCodes={movie?.genre_ids}
-                    width={"80px"}
                     fontSize={"sm"}
                     bgColor={"blackAlpha.900"}
                 />

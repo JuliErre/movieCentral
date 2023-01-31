@@ -2,7 +2,7 @@ import { Flex, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 import genres from "../../data/Genres";
 
-const GenresContainer = ({ genresCodes, width, fontSize,bgColor }) => {
+const GenresContainer = ({ genresCodes, fontSize,bgColor }) => {
     const genreArray =  genresCodes?.slice(0, 1)
 
     return (
@@ -11,6 +11,7 @@ const GenresContainer = ({ genresCodes, width, fontSize,bgColor }) => {
                 const genre = genres.find((genre) => genre.id === genreCode);
                 return (
                     <Flex
+                        key={genre.id}
                         justifyContent={"center"}
                         align="center"
                         flexDirection="row"
