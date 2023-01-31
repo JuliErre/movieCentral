@@ -3,23 +3,18 @@ import {
     Flex,
     Heading,
     HStack,
-    Image,
-    Input,
-    useToast,
-    VStack,
-    Text,
+    Image, Text, useToast,
+    VStack
 } from "@chakra-ui/react";
 import axios from "axios";
+import { Formik } from "formik";
 import React from "react";
-import { FaRegEnvelope } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 import Api from "../../data/Api";
 import { initUserData } from "../../features/userData/UserData";
 import { initWatchList } from "../../features/watchlist/WatchlistSlice";
-import * as Yup from "yup";
-import useFetch from "../../hooks/useFetch";
-import { Formik } from "formik";
 import TextField from "../form/TextField";
 const Login = () => {
     const [loading, setLoading] = React.useState(false);
@@ -36,7 +31,7 @@ const Login = () => {
         } catch (err) {
             console.log(err);
         }
-    };
+    }; 
 
     const handleSubmit = (values) => {
         const { email, password } = values;

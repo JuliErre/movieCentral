@@ -1,16 +1,16 @@
-import { Heading, VStack, Image, Flex, Button, Icon } from "@chakra-ui/react";
+import { Flex, Heading, Icon, Image, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
-import LogoutBtn from "../button/LogoutBtn";
-import ProfileImagePicker from "./ProfileImagePicker";
 import { FiEdit } from "react-icons/fi";
 import { useSelector } from "react-redux";
+import LogoutBtn from "../button/LogoutBtn";
+import ProfileImagePicker from "./ProfileImagePicker";
 
 const Profile = () => {
     const [isOpen, setIsOpen] = useState(false);
     const userName = localStorage.getItem("name");
     const userImage = useSelector( state => state.userData.image);
 
-    const handleOpen = () => {
+    const handleOpen = () => { 
         setIsOpen(true);
     };
 

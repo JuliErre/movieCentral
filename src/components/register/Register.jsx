@@ -3,19 +3,17 @@ import {
     Flex,
     Heading,
     HStack,
-    Input,
-    useToast,
-    VStack,
     Image,
     Text,
+    useToast,
+    VStack
 } from "@chakra-ui/react";
 import axios from "axios";
-import React from "react";
-import { FaRegEnvelope } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
-import Api from "../../data/Api";
-import * as Yup from "yup";
 import { Formik } from "formik";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as Yup from "yup";
+import Api from "../../data/Api";
 import TextField from "../form/TextField";
 const Register = () => {
     const [loading, setLoading] = React.useState(false);

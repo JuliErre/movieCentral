@@ -1,19 +1,17 @@
 import {
-    Heading,
-    HStack,
-    Image,
-    VStack,
-    Text,
-    Flex,
-    Spinner,
     AspectRatio,
-    Center,
+    Flex,
+    Heading,
+    HStack, Icon, Image,
+    Spinner,
+    Text,
+    VStack
 } from "@chakra-ui/react";
 import React from "react";
+import { MdMovie } from "react-icons/md";
 import Api from "../../data/Api";
 import useFetch from "../../hooks/useFetch";
 import WatchListButtons from "../watchlist/WatchListButtons";
-
 const Detail = ({ id }) => {
     const {
         data: movie,
@@ -36,7 +34,7 @@ const Detail = ({ id }) => {
         <VStack
             position={"relative"}
             width="100%"
-            minH={{base:"140vh",md:"170vh"}}
+            minH={{ base: "140vh", md: "170vh" }}
             alignItems={"center"}
             maxW={"100%"}>
             <Flex position={"relative"}>
@@ -49,7 +47,7 @@ const Detail = ({ id }) => {
                 />
                 <Flex
                     width={"100%"}
-                    height={{base:"140vh",md:"170vh"}}
+                    height={{ base: "140vh", md: "170vh" }}
                     position="absolute"
                     bgGradient="linear(to-b, transparent, 
             RGBA(0, 0, 0, 0.7) 0%)"
@@ -65,14 +63,13 @@ const Detail = ({ id }) => {
                 maxW={"100%"}
                 px={5}>
                 <HStack align="start" gap={10}>
-                    <Flex display={{base:"none", lg:"flex"}}>
-
-                    <Image
-                        src={`${Api.baseUrlImage}/${movie?.poster_path}`}
-                        objectFit="cover"
-                        w={"450px"}
-                        h="650px"
-                        borderRadius={"20px"}
+                    <Flex display={{ base: "none", lg: "flex" }}>
+                        <Image
+                            src={`${Api.baseUrlImage}/${movie?.poster_path}`}
+                            objectFit="cover"
+                            w={"450px"}
+                            h="650px"
+                            borderRadius={"20px"}
                         />
                     </Flex>
                     <VStack align="start" gap={3} maxWidth="700px">
@@ -88,16 +85,14 @@ const Detail = ({ id }) => {
                         <Heading as="h3" size="3xl" color="gray.300">
                             {movie?.title}
                         </Heading>
-                        <Flex  width={"100%"}>
-
-                        <Text
-                            color="gray.300"
-                            fontWeight={"normal"}
-                            fontSize={16}
-                           >
-                            {movie?.overview}
-                        </Text>
-                                </Flex>
+                        <Flex width={"100%"}>
+                            <Text
+                                color="gray.300"
+                                fontWeight={"normal"}
+                                fontSize={16}>
+                                {movie?.overview}
+                            </Text>
+                        </Flex>
                         <Flex
                             justifyContent={"space-between"}
                             alignItems={"flex-end"}
@@ -125,6 +120,13 @@ const Detail = ({ id }) => {
                                         />
                                     )
                                 )}
+                                {
+                                    providers?.results?.hasOwnProperty('AR') ? null : 
+                                     <Flex w={"60px" } h={"60px"} bg={"gray.200"} alignItems={"center"} justify={"center"} borderRadius="10px"> 
+                                        <Icon as={MdMovie} color="gray.800" fontSize="3xl" />
+                                     </Flex>
+                                }
+                        
                             </Flex>
                         </VStack>
                         <VStack
@@ -137,10 +139,10 @@ const Detail = ({ id }) => {
                             </Heading>
                             <Flex
                                 flexDirection="row"
-                                width={{base:"300px", lg:"100%"}}
+                                width={{ base: "300px", lg: "100%" }}
                                 maxW={"100%"}
                                 overflowX={"scroll"}
-                                gap={{base:3,md:5}}
+                                gap={{ base: 3, md: 5 }}
                                 overflowY={"hidden"}
                                 sx={{
                                     "::-webkit-scrollbar": {
@@ -148,14 +150,26 @@ const Detail = ({ id }) => {
                                     },
                                 }}>
                                 {movie?.cast?.map((actor) => (
-                                    <Flex w={{base:"60px",md:"100%"}} direction={"column"} maxW={{base:"60px",md:"100%"}}>
-                                        <Flex w={{base:"60px", lg :"120px"}} h={{base:"75px",lg:"150px"}} maxW={"100%"}>
+                                    <Flex
+                                        w={{ base: "60px", md: "100%" }}
+                                        direction={"column"}
+                                        maxW={{ base: "60px", md: "100%" }} key={actor.id}>
+                                        <Flex
+                                            w={{ base: "60px", lg: "120px" }}
+                                            h={{ base: "75px", lg: "150px" }}
+                                            maxW={"100%"}>
                                             <Image
                                                 key={actor.id}
                                                 src={`${Api.baseUrlImage}/${actor.profile_path}`}
                                                 objectFit="cover"
-                                                w={{base:"60px", lg :"120px"}}
-                                                h={{base:"75px",lg:"150px"}}
+                                                w={{
+                                                    base: "60px",
+                                                    lg: "120px",
+                                                }}
+                                                h={{
+                                                    base: "75px",
+                                                    lg: "150px",
+                                                }}
                                                 borderRadius="10px"
                                             />
                                         </Flex>
@@ -176,7 +190,14 @@ const Detail = ({ id }) => {
                     <Heading as="h2" size="xl" color="gray.200">
                         Official Trailer
                     </Heading>
-                    <AspectRatio w={{  base: "20em",sm:"400px",md:"500px", lg:"1000px"}} ratio={21 / 9}>
+                    <AspectRatio
+                        w={{
+                            base: "20em",
+                            sm: "400px",
+                            md: "500px",
+                            lg: "1000px",
+                        }}
+                        ratio={21 / 9}>
                         <iframe
                             src={movie?.trailer}
                             title="YouTube video player"

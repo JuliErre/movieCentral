@@ -1,17 +1,14 @@
-import React from "react";
 import {
     Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Button,
-    Text,
+    ModalContent,
+    ModalHeader,
+    ModalOverlay
 } from "@chakra-ui/react";
-import ProfileImageList from "./ProfileImageList";
+import React from "react";
 import profileImages from "../../data/ProfileImgs";
+import ProfileImageList from "./ProfileImageList";
 
 function ProfileImagePicker({ isOpen, onClose }) {
     return (

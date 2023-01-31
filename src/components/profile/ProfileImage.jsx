@@ -1,9 +1,9 @@
-import React from "react";
 import { Flex, Image, useToast } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { setUserProfileImage } from "../../features/userData/UserData";
 import axios from "axios";
+import React from "react";
+import { useDispatch } from "react-redux";
 import Api from "../../data/Api";
+import { setUserProfileImage } from "../../features/userData/UserData";
 const ProfileImage = ({ image }) => {
     const dispatch = useDispatch();
     const toast = useToast();
@@ -12,7 +12,7 @@ const ProfileImage = ({ image }) => {
         axios
             .patch(`${Api.baseUrl}/photo`, {
                 photo: image.url,
-                userId,
+                userId, 
             })
             .then((res) => {
                 localStorage.setItem("photo", image.url);

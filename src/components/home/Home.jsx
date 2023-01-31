@@ -1,4 +1,3 @@
-import { VStack } from "@chakra-ui/react";
 import React from "react";
 import HeadPoster from "./HeadPoster";
 import HomeContainer from "./HomeContainer";
@@ -11,6 +10,6 @@ const Home = () => {
         </>
     
     );
-};
+}; 
 
 export default Home;
